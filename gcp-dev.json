@@ -7,5 +7,4 @@
   "credential_source": {
     "file": "/mnt/workspace/spacelift.oidc"
     }
-  }
 }
