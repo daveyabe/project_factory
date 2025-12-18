@@ -1,6 +1,6 @@
 module "dev_app_project" {
   # The source points to your local module directory
-  source = "./modules/project" 
+  source = "../../modules/project" 
 
   # Pass variables sourced from dev.tfvars to your module's inputs
   billing_account = var.billing_account
@@ -16,4 +16,11 @@ resource "google_storage_bucket" "app_logs" {
   location = var.gcp_region
   uniform_bucket_level_access = true
   depends_on = [module.dev_app_project] 
+}
+
+resource "google_storage_bucket" "usagereport_bucket" {
+  name    = "${var.project_prefix}-usagereport-bucket"
+  location = var.gcp_region
+  project = module.dev_app_project.project_id
+  uniform_bucket_level_access = true
 }
