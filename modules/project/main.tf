@@ -6,7 +6,7 @@ module "project" {
   billing_account = var.billing_account
   org_id          = var.org_id
   #folder_id       = var.folder_id
-  deletion_policy = "PREVENT"
+  deletion_policy = "DELETE"
   name = var.project_name
   #usage_bucket_name = "${var.project_prefix}-usagereport-bucket"
   #usage_bucket_prefix = "n43/devops/tf/base"  
